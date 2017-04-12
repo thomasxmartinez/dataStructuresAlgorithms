@@ -35,7 +35,7 @@ digits.push({id:9, name:['w','x','y','z']});
 digits.push({id:0, name:['#']});
 
 
-function permut(digits) {
+function permut() {
   if (string.length < 2) return string; // This is our break condition
 
   var permutations = []; // This array will hold our permutations
