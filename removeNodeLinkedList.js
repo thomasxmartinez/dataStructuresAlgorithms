@@ -78,23 +78,21 @@ SinglyLinkedList.prototype.print = function() {
   console.log(string.trim());
 };
 
-
 var singlyLinkedList = new SinglyLinkedList();
 singlyLinkedList.print(); // => ''
 singlyLinkedList.add(1);
-singlyLinkedList.add(2);
 singlyLinkedList.add(3);
-singlyLinkedList.add(4);
+singlyLinkedList.add(6);
+singlyLinkedList.add(-1);
+singlyLinkedList.add(8);
 singlyLinkedList.print(); // => 1 2 3 4
 console.log('length is 4:', singlyLinkedList.length()); // => 4
 singlyLinkedList.remove(3); // remove value
-singlyLinkedList.print(); // => 1 2 4
-singlyLinkedList.remove(9); // remove non existing value
-singlyLinkedList.print(); // => 1 2 4
+singlyLinkedList.print(); // => 1>6>-1>8
+singlyLinkedList.remove(8); // remove non existing value
+singlyLinkedList.print(); // => 1>6>-1
 singlyLinkedList.remove(1); // remove head
-singlyLinkedList.print(); // => 2 4
-singlyLinkedList.remove(4); // remove tail
-singlyLinkedList.print(); // => 2
+singlyLinkedList.print(); // => 6>-1
 console.log('length is 1:', singlyLinkedList.length()); // => 1
 singlyLinkedList.add(6);
 singlyLinkedList.print(); // => 2 6
