@@ -16,37 +16,37 @@ function longestIncrSubArray(seq){
   if (seq.length < 2)
     return [];
 
-  var maxStart = 0;
-  var maxLength = 1;
+	var max_start = 0;
+	var max_end = 1;
 
-  var currentStart = 0;
-  var currentLength = 1;
+	var cur_start = 0;
+	var cur_end = 1;
 
-  for ( var i = 1; i < seq.length; i++) {
+	var i = 0;
 
-    if (seq[i] >= seq[i-1]) {
-      currentLength++;
-      if (i < seq.length - 1) {
-        i++;
-      }
-    }
+	while ( i < seq.length -1) {
+		while( seq[cur_end] > seq[cur_end - 1] ) {
+			cur_end += 1;
+			if(cur_end > seq.length -1){
+				break;
+			}
+		}
 
-    if (currentLength > maxLength) {
-      maxLength = currentLength;
-      maxStart = currentStart;
+		var old_max = max_end - max_start;
+		var new_max = cur_end - cur_start;
 
-      currentStart = i;
-      currentLength = 0;
-    }
-  }
+		if (new_max > old_max){
+			max_start = cur_start;
+	    max_end = cur_end;
+		}
 
-  if (maxLength > 1) {
-    for (i = maxStart; i < maxStart + maxLength; i++) {
-      subArr.push(seq[i]);
-    }
-  }
-  return subArr;
-}
+		cur_start = cur_end;
+	  cur_end = cur_end + 1;
+
+		i = cur_end;
+
+	}
+
 
 // Test for the second exercise
 console.log(longestIncrSubArray([3, 4, 2, 8, 3, 9, 11, 9, 10]));
