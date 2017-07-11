@@ -12,3 +12,4 @@ function charFreq (sentence) {
   }
   return freqOfCharacters;
 }
+// 
